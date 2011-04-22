@@ -42,16 +42,19 @@ function pre_dump($input) {
  * Call <pre><code>class_exists('Foo_Class');</code></pre> to force this function to execute.
  * Classes that take the form MVC_*, Controller_*, Model_*, and View_* are autoloaded from specific
  * directories using the Zend class-filesystem convention.
+ * @see spl_autoload_register
  */
 function djw_autoload($name) {
     $filepath           = NULL;
     $class_parts        = explode('_', strtolower($name));
 
     // detect the filesystem path based on the classname
+    // include the expected filepath based on the classname
+    // throw an Exception if the class failed to load
 
     if(!empty($filepath)) {
         @include($filepath);
     }
 }
-// register ``djw_autoload`` with the PHP autoload appliance
+// register djw_autoload with the PHP autoload appliance
 spl_autoload_register('djw_autoload');
