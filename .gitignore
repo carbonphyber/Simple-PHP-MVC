@@ -1,0 +1,8 @@
+# ignore configuration files (these will vary between each server)
+conf/*
+
+# database content will not be source-controlled
+db/*
+
+# session will not be source-controlled
+session/*
