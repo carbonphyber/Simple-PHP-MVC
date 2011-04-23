@@ -34,8 +34,8 @@ in the HTTP request to the ``index.php`` file in the root of the ``public``
 directory.  This ``index.php`` file is the "bootstrap file" and is configured
 to find, load, and initialize the MVC package.
 
-
 Additional useful and recommended ``Apache`` + ``php.ini`` values::
+
     php_value default_charset "UTF-8"
     SetEnv APPLICATION_ENVIRONMENT development
     php_value session.save_path "/path/to/repo/session"
