@@ -9,15 +9,14 @@ Installation
 ============
 
 Apache configuration. Add this directive to your httpd.conf, .htaccess, or
-other Apache configuration file:
-``
-<Location />
-    RewriteEngine on
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule !\.(js|ico|gif|jpg|png|css)$ /index.php
-</Location>
-``
+other Apache configuration file::
+    <Location />
+        RewriteEngine on
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule !\.(js|ico|gif|jpg|png|css)$ /index.php
+    </Location>
+
 This assumes that you have Apache running as your web server with
 ``mod_rewrite`` installed and active.  This directive will rewrite any URI
 in the HTTP request to the ``index.php`` file in the root of the ``public``
