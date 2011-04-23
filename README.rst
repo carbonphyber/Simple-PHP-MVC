@@ -2,14 +2,25 @@
 Simple PHP MVC
 ========
 
-A simple MVC framework (designed and documented to work with Apache 2.x).
+A simple MVC framework (designed and documented to work with ``PHP 5`` and ``Apache 2``).
+Designed to work with UTF-8 (a flexible and standard character encoding) by default.
 
 
 Installation
 ============
 
+Requirements
+------------
+``Apache 2.x`` with ``mod_rewrite``
+``PHP 5.2`` or newer
+
+
+Configuration
+------------
+
 Apache configuration. Add this directive to your httpd.conf, .htaccess, or
 other Apache configuration file::
+
     <Location />
         RewriteEngine on
         RewriteCond %{REQUEST_FILENAME} !-f
@@ -24,9 +35,22 @@ directory.  This ``index.php`` file is the "bootstrap file" and is configured
 to find, load, and initialize the MVC package.
 
 
-The MIT License
+Additional useful and recommended ``Apache`` + ``php.ini`` values::
+    php_value default_charset "UTF-8"
+    SetEnv APPLICATION_ENVIRONMENT development
+    php_value session.save_path "/path/to/repo/session"
+    php_value session.auto_start 0
+    php_value output_buffering 1
+    php_value expose_php Off
+    php_value magic_quotes_gpc 0
+    php_value magic_quotes_runtime 0
+
+
+Package License
 ===========
 
+The MIT License
+------------
 Copyright (c) 2011 David Wortham
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
